@@ -1,9 +1,11 @@
-function App() {
+import { Navbar } from './components/Fragments/Navbar/Index';
+
+const App = () => {
   return (
     <>
-      <h1>hai</h1>
+      <Navbar />
     </>
   );
-}
+};
 
 export default App;
