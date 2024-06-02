@@ -1,10 +1,20 @@
-import Footer from './components/Fragments/Footer/Index';
+import MainPage from './pages/MainPage';
+import ToPDF from './services/toPDF';
+import { PDFDownloadLink } from '@react-pdf/renderer';
 
 const App = () => {
   return (
     <div className="h-[1000px]">
-      <h1>hai</h1>
-      <Footer />
+      <PDFDownloadLink document={<ToPDF />} fileName="Uhuy">
+        {({ loading }) =>
+          loading ? (
+            <button>Loading Document...</button>
+          ) : (
+            <button>Download</button>
+          )
+        }
+      </PDFDownloadLink>
+      <MainPage />
     </div>
   );
 };
