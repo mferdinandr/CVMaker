@@ -16,7 +16,7 @@ const SocialMediaFooter = ({ children, link }) => {
 
 const Footer = () => {
   return (
-    <div className="fixed bottom-0 w-full bg-gray-300 text-center py-2">
+    <div className="fixed bottom-0 w-full bg-gray-300 text-center py-2 z-50">
       <SocialMediaFooter link={'https://instagram.com/m.ferdinram'}>
         <InstagramIcon sx={{ fontSize: 26 }} />
       </SocialMediaFooter>
