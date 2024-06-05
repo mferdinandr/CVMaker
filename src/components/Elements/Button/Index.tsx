@@ -6,10 +6,10 @@ export const DeleteButton = ({ children }) => {
   );
 };
 
-export const SuccessButton = ({ children, length }) => {
+export const SuccessButton = ({ children }) => {
   return (
     <button
-      className={`bg-green-500 rounded-lg hover:bg-green-100 border-[1px] hover:border-green-500 hover:text-green-500 w-[${length}] text-black px-4 py-2`}
+      className={`bg-green-500 rounded-lg hover:bg-green-100 border-[1px] hover:border-green-500 hover:text-green-500 w-full text-black px-4 py-2`}
     >
       {children}
     </button>
