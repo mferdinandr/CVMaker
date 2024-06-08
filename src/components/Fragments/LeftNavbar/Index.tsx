@@ -1,25 +1,28 @@
 import NavButton from '../../Elements/NavButton/Index';
 import Form from '../../Elements/Form/Index';
 
-const LeftNavbar = () => {
+const Personal = ({ onChange, valueName, valueEmail }) => {
   return (
     <div className="w-2/5">
       <NavButton />
       <form className="my-[24vh] h-auto">
-        <div className="flex justify-around">
-          <Form label={'Nama Awal'} id={'nameAwal'} />
-          <Form label={'Nama Akhir'} id={'nameAkhir'} />
-        </div>
-        <Form label={'Nama'} id={'name'} />
-        <Form label={'Nama'} id={'name'} />
-        <Form label={'Nama'} id={'name'} />
-        <Form label={'Nama'} id={'name'} />
-        <Form label={'Nama'} id={'name'} />
-        <Form label={'Nama'} id={'name'} />
-        <Form label={'Nama'} id={'name'} />
+        <Form
+          label={'Nama'}
+          id={'name'}
+          onChange={onChange}
+          value={valueName}
+          placeholder={'Nama'}
+        />
+        <Form
+          label={'Email'}
+          id={'email'}
+          onChange={onChange}
+          value={valueEmail}
+          placeholder={'Email@gamil.com'}
+        />
       </form>
     </div>
   );
 };
 
-export default LeftNavbar;
+export default Personal;

@@ -1,10 +1,14 @@
 import Footer from '../components/Fragments/Footer/Index';
 import LeftNavbar from '../components/Fragments/LeftNavbar/Index';
+import RightBar from '../components/Fragments/Preview/Index';
 
 const MainPage = () => {
   return (
     <div>
-      <LeftNavbar />
+      <div>
+        <LeftNavbar />
+        <RightBar />
+      </div>
       <Footer />
     </div>
   );

@@ -25,9 +25,6 @@ const NavButton = () => {
           <SecondaryButton>Load Example</SecondaryButton>
         </div>
       </div>
-      <div className="bg-blue-200 md:w-3/5 absolute md:right-0 w-screen top-[23vh] md:top-0">
-        dada
-      </div>
     </div>
   );
 };

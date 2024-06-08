@@ -1,14 +1,15 @@
-const Form = ({ label, id }) => {
+import { Label } from './Label';
+import { Input } from './Form';
+
+const Form = ({ label, id, onChange, value, placeholder }) => {
   return (
     <div className="flex flex-col my-2">
-      <label htmlFor={id} className="mb-1 ml-1 font-bold">
-        {label}
-      </label>
-      <input
-        type="text"
-        name={id}
+      <Label label={label} id={id} />
+      <Input
         id={id}
-        className="pl-3 p-2 border-[1px] border-black rounded-md"
+        onChange={onChange}
+        value={value}
+        placeholder={placeholder}
       />
     </div>
   );
