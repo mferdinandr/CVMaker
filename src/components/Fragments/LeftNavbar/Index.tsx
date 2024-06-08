@@ -1,7 +1,18 @@
 import NavButton from '../../Elements/NavButton/Index';
 import Form from '../../Elements/Form/Index';
+import { ChangeEvent } from 'react';
 
-const Personal = ({ onChange, valueName, valueEmail }) => {
+interface PersonalFormProps {
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  valueName: string;
+  valueEmail: string;
+}
+
+const Personal: React.FC<PersonalFormProps> = ({
+  onChange,
+  valueName,
+  valueEmail,
+}) => {
   return (
     <div className="w-2/5">
       <NavButton />

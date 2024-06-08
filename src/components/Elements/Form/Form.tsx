@@ -1,4 +1,18 @@
-export const Input = ({ id, onChange, value, placeholder }) => {
+import React, { ChangeEvent } from 'react';
+
+interface InputProps {
+  id: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  value: string;
+  placeholder: string;
+}
+
+export const Input: React.FC<InputProps> = ({
+  id,
+  onChange,
+  value,
+  placeholder,
+}) => {
   return (
     <input
       type="text"

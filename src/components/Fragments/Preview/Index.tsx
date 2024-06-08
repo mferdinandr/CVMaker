@@ -9,7 +9,7 @@ interface Data {
 const RightBar = () => {
   const [data, setData] = useState<Data>({ name: '', email: '' });
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const key = e.target.id;
     setData({ ...data, [key]: e.target.value });
   };

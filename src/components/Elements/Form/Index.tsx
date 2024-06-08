@@ -1,7 +1,22 @@
 import { Label } from './Label';
 import { Input } from './Form';
+import { ChangeEvent } from 'react';
 
-const Form = ({ label, id, onChange, value, placeholder }) => {
+interface FormProps {
+  label: string;
+  id: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  value: string;
+  placeholder: string;
+}
+
+const Form: React.FC<FormProps> = ({
+  label,
+  id,
+  onChange,
+  value,
+  placeholder,
+}) => {
   return (
     <div className="flex flex-col my-2">
       <Label label={label} id={id} />
