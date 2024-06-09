@@ -6,7 +6,7 @@ import { DeleteButton, SecondaryButton, SuccessButton } from '../Button/Index';
 const NavButton = () => {
   return (
     <div className="w-screen md:flex">
-      <div className="md:border-b-2 border-black/80 md:w-2/5 box-border px-4 py-7 fixed w-screen z-10 bg-white">
+      <div className="md:border-b-2 border-black/80 md:w-[37%] px-4 py-7 fixed w-screen z-10 bg-white md:ml-4">
         <div>
           <PDFDownloadLink document={<ToPDF />} fileName="Uhuy">
             {({ loading }) =>

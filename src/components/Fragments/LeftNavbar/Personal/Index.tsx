@@ -1,5 +1,5 @@
-import NavButton from '../../Elements/NavButton/Index';
-import Form from '../../Elements/Form/Index';
+import NavButton from '../../../Elements/NavButton/Index';
+import Form from '../../../Elements/Form/Index';
 import { ChangeEvent } from 'react';
 
 interface PersonalFormProps {
@@ -15,8 +15,7 @@ const Personal: React.FC<PersonalFormProps> = ({
 }) => {
   return (
     <div className="w-2/5">
-      <NavButton />
-      <form className="my-[24vh] h-auto">
+      <form className="">
         <Form
           label={'Nama'}
           id={'name'}
