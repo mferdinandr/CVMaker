@@ -1,4 +1,3 @@
-import NavButton from '../../../Elements/NavButton/Index';
 import Form from '../../../Elements/Form/Index';
 import { ChangeEvent } from 'react';
 
@@ -14,11 +13,11 @@ const Personal: React.FC<PersonalFormProps> = ({
   valueEmail,
 }) => {
   return (
-    <div className="w-2/5">
+    <div className="w-full">
       <form className="">
         <Form
           label={'Nama'}
-          id={'name'}
+          id={'fullName'}
           onChange={onChange}
           value={valueName}
           placeholder={'Nama'}
