@@ -1,44 +1,59 @@
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
 import Personal from '../LeftNavbar/Personal/Index';
 import NavButton from '../../Elements/NavButton/Index';
-import Educations from '../LeftNavbar/Educations/Index';
 
 import Database from '/src/data/data.js';
 
 const MainPage = () => {
-  const [data, setData] = useState(Database);
+  const [personalInfo, setPersonalInfo] = useState<{
+    fullName: string;
+    email: string;
+    phoneNumber: string;
+    address: string;
+  } | null>(null);
 
-  const [personalInfo, setPersonalInfo] = useState(Database.personalInfo);
-  const [educations, setEducations] = useState(Database.sections.educations);
-
-  console.log(educations);
-
-  const handlePersonalInfoChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const key = e.target.id;
-    setPersonalInfo({ ...personalInfo, [key]: e.target.value });
+  const handleLoadExample = () => {
+    setPersonalInfo(Database.personalInfo);
   };
 
-  console.log(data);
+  const handleClear = () => {
+    setPersonalInfo(null);
+  };
+
+  console.log('oooooo', personalInfo);
+
+  const handlePersonalInfoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const key = e.target.id;
+    setPersonalInfo((prevPersonalInfo) => ({
+      ...prevPersonalInfo!,
+      [key]: e.target.value,
+    }));
+  };
 
   return (
     <div>
       {/* BUTTON */}
-      <NavButton />
-      <div className="flex bg-red-200 md:gap-10 md:mx-4 md:my-2">
-        <div className=" bg-blue-200 w-2/5 mt-[22vh] h-[1000px]">
+      <NavButton onClickLoad={handleLoadExample} onClickClear={handleClear} />
+      <div className="">
+        <div className=" ">
           <Personal
             onChange={handlePersonalInfoChange}
-            valueName={personalInfo.fullName}
-            valueEmail={personalInfo.email}
+            valueName={personalInfo?.fullName || ''}
+            valueEmail={personalInfo?.email || ''}
+            valueAddress={personalInfo?.address || ''}
+            valuePhoneNumber={personalInfo?.phoneNumber || ''}
           />
-          <Educations />
         </div>
 
         {/* PREVIEW */}
-        <div className="w-3/5">
-          <h1>{personalInfo.fullName}</h1>
-          <h1>{personalInfo.email}</h1>
-        </div>
+        {personalInfo && (
+          <div className="">
+            <h1>{personalInfo.fullName}</h1>
+            <h1>{personalInfo.email}</h1>
+            <h1>{personalInfo.phoneNumber}</h1>
+            <h1>{personalInfo.address}</h1>
+          </div>
+        )}
       </div>
     </div>
   );

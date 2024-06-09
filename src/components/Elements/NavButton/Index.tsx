@@ -3,10 +3,15 @@ import ToPDF from '../../../services/toPDF';
 
 import { DeleteButton, SecondaryButton, SuccessButton } from '../Button/Index';
 
-const NavButton = () => {
+interface NavButtonProps {
+  onClickLoad?: () => void;
+  onClickClear?: () => void;
+}
+
+const NavButton: React.FC<NavButtonProps> = ({ onClickLoad, onClickClear }) => {
   return (
-    <div className="w-screen md:flex">
-      <div className="md:border-b-2 border-black/80 md:w-[37%] px-4 py-7 fixed w-screen z-10 bg-white md:ml-4">
+    <div className="">
+      <div className="">
         <div>
           <PDFDownloadLink document={<ToPDF />} fileName="Uhuy">
             {({ loading }) =>
@@ -21,8 +26,8 @@ const NavButton = () => {
           </PDFDownloadLink>
         </div>
         <div className="flex justify-center gap-5 mt-3">
-          <DeleteButton>Clear</DeleteButton>
-          <SecondaryButton>Load Example</SecondaryButton>
+          <DeleteButton onClick={onClickClear}>Clear</DeleteButton>
+          <SecondaryButton onClick={onClickLoad}>Load Example</SecondaryButton>
         </div>
       </div>
     </div>

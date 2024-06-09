@@ -3,8 +3,11 @@ import { ChangeEvent } from 'react';
 
 interface PersonalFormProps {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  valueName: string;
-  valueEmail: string;
+  valueDegree: string;
+  valueSchoolName: string;
+  valueLocation: string;
+  valueStartDate: string;
+  valueEndDate: string;
 }
 
 const Educations: React.FC<PersonalFormProps> = ({

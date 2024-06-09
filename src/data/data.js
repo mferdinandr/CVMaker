@@ -15,13 +15,13 @@ const Database = {
         startDate: 'September 2020',
         endDate: 'September 2024',
       },
-      {
-        degree: 'Sarjana Informatika',
-        schoolName: 'Universtias Sebelas Maret',
-        location: 'Surakarta, Jawa Tengah',
-        startDate: 'September 2020',
-        endDate: 'September 2024',
-      },
+      // {
+      //   degree: 'Sarjana Informatika',
+      //   schoolName: 'Universtias Sebelas Maret',
+      //   location: 'Surakarta, Jawa Tengah',
+      //   startDate: 'September 2020',
+      //   endDate: 'September 2024',
+      // },
     ],
 
     experiences: [
