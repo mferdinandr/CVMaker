@@ -2,7 +2,12 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 
-const SocialMediaFooter = ({ children, link }) => {
+type FooterProps = {
+  children: React.ReactNode;
+  link: string;
+};
+
+const SocialMediaFooter = ({ children, link }: FooterProps) => {
   return (
     <a
       className={`mx-[2vw] hover:first-of-type:text-red-600 hover:last-of-type:text-green-800 hover:text-blue-700`}

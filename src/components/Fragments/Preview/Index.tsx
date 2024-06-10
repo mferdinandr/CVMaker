@@ -2,15 +2,18 @@ import { useState } from 'react';
 import Personal from '../LeftNavbar/Personal/Index';
 import NavButton from '../../Elements/NavButton/Index';
 
-import Database from '/src/data/data.js';
+import ToPDF from '../../../services/toPDF';
+import Database from '../../../data/data.ts';
+
+export type TPersonalInfo = {
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+  address: string;
+};
 
 const MainPage = () => {
-  const [personalInfo, setPersonalInfo] = useState<{
-    fullName: string;
-    email: string;
-    phoneNumber: string;
-    address: string;
-  } | null>(null);
+  const [personalInfo, setPersonalInfo] = useState<TPersonalInfo | null>(null);
 
   const handleLoadExample = () => {
     setPersonalInfo(Database.personalInfo);
@@ -33,9 +36,13 @@ const MainPage = () => {
   return (
     <div>
       {/* BUTTON */}
-      <NavButton onClickLoad={handleLoadExample} onClickClear={handleClear} />
-      <div className="">
-        <div className=" ">
+      <NavButton
+        onClickLoad={handleLoadExample}
+        onClickClear={handleClear}
+        personalInfo={personalInfo}
+      />
+      <div className="flex gap-5 mx-5 mt-5">
+        <div className="w-2/5 mt-[6.5rem]">
           <Personal
             onChange={handlePersonalInfoChange}
             valueName={personalInfo?.fullName || ''}
@@ -47,7 +54,7 @@ const MainPage = () => {
 
         {/* PREVIEW */}
         {personalInfo && (
-          <div className="">
+          <div className="w-3/5 h-[1000px]">
             <h1>{personalInfo.fullName}</h1>
             <h1>{personalInfo.email}</h1>
             <h1>{personalInfo.phoneNumber}</h1>
@@ -55,6 +62,8 @@ const MainPage = () => {
           </div>
         )}
       </div>
+      {/* ToPDF component */}
+      {personalInfo && <ToPDF personalInfo={personalInfo} />}
     </div>
   );
 };
