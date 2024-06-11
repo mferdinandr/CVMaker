@@ -2,9 +2,12 @@ import React, { ChangeEvent } from 'react';
 
 interface InputProps {
   id: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (
+    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
+  ) => void;
   value: string;
   placeholder: string;
+  typeForm?: string;
 }
 
 export const Input: React.FC<InputProps> = ({
@@ -12,10 +15,20 @@ export const Input: React.FC<InputProps> = ({
   onChange,
   value,
   placeholder,
+  typeForm,
 }) => {
-  return (
+  return typeForm === 'textarea' ? (
+    <textarea
+      name={id}
+      id={id}
+      placeholder={placeholder}
+      onChange={onChange}
+      rows={11}
+      className="pl-3 p-2 border-[1px] border-black rounded-md"
+    />
+  ) : (
     <input
-      type="text"
+      type={typeForm}
       name={id}
       placeholder={placeholder}
       id={id}

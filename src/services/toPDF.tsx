@@ -47,15 +47,13 @@ const ToPDF: React.FC<ToPDFProps> = ({ personalInfo }) => {
     <Document>
       <Page size={'LETTER'}>
         <Text style={styles.headerNameStyle}>
-          {personalInfo?.fullName ?? 'hai'}
+          {personalInfo?.fullName ?? ''}
         </Text>
-        <Text style={styles.headerAdress}>
-          {personalInfo?.address ?? 'hai'}
-        </Text>
+        <Text style={styles.headerAdress}>{personalInfo?.address ?? ''}</Text>
         <View style={styles.headerInformation}>
-          <Text>Telp: {personalInfo?.phoneNumber ?? 'hai'} |</Text>
-          <Text>Email: {personalInfo?.email ?? 'hai'} |</Text>
-          <Text>LinkedIn : {personalInfo?.linkedIn ?? 'hai'}</Text>
+          <Text>Telp: {personalInfo?.phoneNumber ?? ''} |</Text>
+          <Text>Email: {personalInfo?.email ?? ''} |</Text>
+          <Text>LinkedIn : {personalInfo?.linkedIn ?? ''}</Text>
         </View>
       </Page>
     </Document>

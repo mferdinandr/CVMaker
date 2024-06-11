@@ -1,5 +1,5 @@
 import { Label } from './Label';
-import { Input } from './Form';
+import { Input } from './Input';
 import { ChangeEvent } from 'react';
 
 interface FormProps {
@@ -8,6 +8,7 @@ interface FormProps {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   value: string;
   placeholder: string;
+  typeForm?: string;
 }
 
 const Form: React.FC<FormProps> = ({
@@ -16,6 +17,7 @@ const Form: React.FC<FormProps> = ({
   onChange,
   value,
   placeholder,
+  typeForm,
 }) => {
   return (
     <div className="flex flex-col my-2">
@@ -25,6 +27,7 @@ const Form: React.FC<FormProps> = ({
         onChange={onChange}
         value={value}
         placeholder={placeholder}
+        typeForm={typeForm}
       />
     </div>
   );
