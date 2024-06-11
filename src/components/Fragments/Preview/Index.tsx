@@ -4,12 +4,14 @@ import NavButton from '../../Elements/NavButton/Index';
 
 import ToPDF from '../../../services/toPDF';
 import Database from '../../../data/data.ts';
+import { defaultStyle } from '../../../style.ts';
 
 export type TPersonalInfo = {
   fullName: string;
   email: string;
   phoneNumber: string;
   address: string;
+  linkedIn: string;
 };
 
 const MainPage = () => {
@@ -49,16 +51,22 @@ const MainPage = () => {
             valueEmail={personalInfo?.email || ''}
             valueAddress={personalInfo?.address || ''}
             valuePhoneNumber={personalInfo?.phoneNumber || ''}
+            valueLinkedin={personalInfo?.linkedIn || ''}
           />
         </div>
 
         {/* PREVIEW */}
         {personalInfo && (
-          <div className="w-3/5 h-[1000px]">
-            <h1>{personalInfo.fullName}</h1>
-            <h1>{personalInfo.email}</h1>
-            <h1>{personalInfo.phoneNumber}</h1>
-            <h1>{personalInfo.address}</h1>
+          <div className="w-3/5 h-[1000px]" style={defaultStyle}>
+            <h1 className="font-bold text-[2rem] text-center mb-[-5px]">
+              {personalInfo.fullName}
+            </h1>
+            <h1 className="text-center">{personalInfo.address}</h1>
+            <div className="flex justify-center text-[14px] gap-1">
+              <h1>Tel : {personalInfo.phoneNumber} | </h1>
+              <h1>Email: {personalInfo.email} | </h1>
+              <h1>LinkedIn : {personalInfo.linkedIn} </h1>
+            </div>
           </div>
         )}
       </div>

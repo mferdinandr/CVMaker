@@ -1,0 +1,12 @@
+import math
+
+def closedform(n,k):
+    numerator = math.factorial(n)
+    denominator = math.factorial(k) * math.factorial(n - k)
+    hasil = numerator/denominator
+    return hasil
+
+things = 30
+size = 8
+
+print(closedform(things,size))

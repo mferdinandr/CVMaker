@@ -7,6 +7,7 @@ interface PersonalFormProps {
   valueEmail: string;
   valuePhoneNumber: string;
   valueAddress: string;
+  valueLinkedin: string;
 }
 
 const Personal: React.FC<PersonalFormProps> = ({
@@ -15,6 +16,7 @@ const Personal: React.FC<PersonalFormProps> = ({
   valueEmail,
   valuePhoneNumber,
   valueAddress,
+  valueLinkedin,
 }) => {
   return (
     <div className="w-full">
@@ -46,6 +48,13 @@ const Personal: React.FC<PersonalFormProps> = ({
           onChange={onChange}
           value={valueAddress}
           placeholder={'Jakarta, Indonesia'}
+        />
+        <Form
+          label={'LinkedIn'}
+          id={'linkedIn'}
+          onChange={onChange}
+          value={valueLinkedin}
+          placeholder={'linkedin.com/in/xxxxx'}
         />
       </form>
     </div>

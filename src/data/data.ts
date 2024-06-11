@@ -4,6 +4,7 @@ const Database = {
     email: 'sukasukaesa@gmail.com',
     phoneNumber: '0857 2772 1799',
     address: 'Surakarta, Jawa Tengah',
+    linkedIn: 'linkedin.com/in/xxxx',
   },
 
   sections: {
