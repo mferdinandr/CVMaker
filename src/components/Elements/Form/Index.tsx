@@ -5,7 +5,9 @@ import { ChangeEvent } from 'react';
 interface FormProps {
   label: string;
   id: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (
+    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
+  ) => void;
   value: string;
   placeholder: string;
   typeForm?: string;

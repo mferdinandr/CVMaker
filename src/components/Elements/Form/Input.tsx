@@ -24,6 +24,7 @@ export const Input: React.FC<InputProps> = ({
       placeholder={placeholder}
       onChange={onChange}
       rows={11}
+      value={value}
       className="pl-3 p-2 border-[1px] border-black rounded-md"
     />
   ) : (

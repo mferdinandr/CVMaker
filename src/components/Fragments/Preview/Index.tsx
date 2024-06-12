@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import Personal from '../LeftNavbar/Personal/Index';
 import NavButton from '../../Elements/NavButton/Index';
 
@@ -12,6 +12,7 @@ export type TPersonalInfo = {
   phoneNumber: string;
   address: string;
   linkedIn: string;
+  summary: string;
 };
 
 const MainPage = () => {
@@ -25,9 +26,9 @@ const MainPage = () => {
     setPersonalInfo(null);
   };
 
-  console.log('oooooo', personalInfo);
-
-  const handlePersonalInfoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePersonalInfoChange = (
+    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
+  ) => {
     const key = e.target.id;
     setPersonalInfo((prevPersonalInfo) => ({
       ...prevPersonalInfo!,
@@ -36,15 +37,18 @@ const MainPage = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col h-screen">
       {/* BUTTON */}
-      <NavButton
-        onClickLoad={handleLoadExample}
-        onClickClear={handleClear}
-        personalInfo={personalInfo}
-      />
-      <div className="flex gap-5 mx-5 mt-5">
-        <div className="w-2/5 mt-[6.5rem]">
+      <div className="overflow-y-auto h-12">
+        <NavButton
+          onClickLoad={handleLoadExample}
+          onClickClear={handleClear}
+          personalInfo={personalInfo}
+        />
+      </div>
+      <div className="flex flex-1">
+        <div className="overflow-y-auto w-2/5 max-h-[calc(100vh-48px)] mt-[8.2rem] px-4 bg-red-200 pb-16">
+          {/* PERSONAL INFO FORM */}
           <Personal
             onChange={handlePersonalInfoChange}
             valueName={personalInfo?.fullName || ''}
@@ -52,26 +56,37 @@ const MainPage = () => {
             valueAddress={personalInfo?.address || ''}
             valuePhoneNumber={personalInfo?.phoneNumber || ''}
             valueLinkedin={personalInfo?.linkedIn || ''}
+            valueSummary={personalInfo?.summary || ''}
           />
         </div>
-
         {/* PREVIEW */}
-        {personalInfo && (
-          <div className="w-3/5 h-[1000px]" style={defaultStyle}>
-            <h1 className="font-bold text-[2rem] text-center mb-[-5px]">
-              {personalInfo.fullName}
-            </h1>
-            <h1 className="text-center">{personalInfo.address}</h1>
-            <div className="flex justify-center text-[14px] gap-1">
-              <h1>Tel : {personalInfo.phoneNumber} | </h1>
-              <h1>Email: {personalInfo.email} | </h1>
-              <h1>LinkedIn : {personalInfo.linkedIn} </h1>
+        <div className="overflow-y-auto w-3/5 max-h-[calc(100vh-48px)] bg-blue-200 mx-4 mt-5">
+          {personalInfo && (
+            <div style={defaultStyle}>
+              <h1 className="font-bold text-2xl text-center mb-[-5px]">
+                {personalInfo.fullName}
+              </h1>
+              <h1 className="text-center">{personalInfo.address}</h1>
+              <div className="flex justify-center text-sm gap-1">
+                <h1>Tel : {personalInfo.phoneNumber} | </h1>
+                <h1>Email: {personalInfo.email} | </h1>
+                <h1>LinkedIn : {personalInfo.linkedIn} </h1>
+              </div>
+              <div>
+                <h1 className="font-bold text-center text-lg pt-5">SUMMARY</h1>
+                <hr className="border-[1.5px] my-[1.5px] border-black w-[90%] mx-auto" />
+                <h1 className="text-sm text-center px-7">
+                  {personalInfo.summary}
+                </h1>
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
       {/* ToPDF component */}
-      {personalInfo && <ToPDF personalInfo={personalInfo} />}
+      <div className="hidden">
+        {personalInfo && <ToPDF personalInfo={personalInfo} />}
+      </div>
     </div>
   );
 };

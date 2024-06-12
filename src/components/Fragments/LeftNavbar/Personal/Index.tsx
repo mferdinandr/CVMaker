@@ -1,13 +1,17 @@
 import Form from '../../../Elements/Form/Index';
 import { ChangeEvent } from 'react';
+import { Title } from '../../../Elements/Text/Index';
 
 interface PersonalFormProps {
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (
+    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
+  ) => void;  
   valueName: string;
   valueEmail: string;
   valuePhoneNumber: string;
   valueAddress: string;
   valueLinkedin: string;
+  valueSummary: string;
 }
 
 const Personal: React.FC<PersonalFormProps> = ({
@@ -17,10 +21,12 @@ const Personal: React.FC<PersonalFormProps> = ({
   valuePhoneNumber,
   valueAddress,
   valueLinkedin,
+  valueSummary,
 }) => {
   return (
     <div className="w-full">
       <form className="">
+        <Title>Personal Information</Title>
         <Form
           label={'Nama'}
           id={'fullName'}
@@ -55,6 +61,14 @@ const Personal: React.FC<PersonalFormProps> = ({
           onChange={onChange}
           value={valueLinkedin}
           placeholder={'linkedin.com/in/xxxxx'}
+        />
+        <Form
+          typeForm="textarea"
+          label={'Summary'}
+          id={'summary'}
+          onChange={onChange}
+          value={valueSummary}
+          placeholder={'I`m a ......'}
         />
       </form>
     </div>

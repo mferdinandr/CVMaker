@@ -39,7 +39,27 @@ const styles = StyleSheet.create({
     gap: 5,
     marginHorizontal: 'auto',
   },
-  headerInformation2nd: {},
+  headerSummary: {
+    fontFamily: 'Tinos-Bold',
+    fontSize: 13,
+    borderBottomColor: 'black',
+    borderBottomWidth: 1.5,
+    borderBottomStyle: 'solid',
+    width: '90%',
+    textAlign: 'center',
+    marginHorizontal: 'auto',
+    marginBottom: 2,
+    marginTop: 18,
+  },
+  Summary: {
+    fontFamily: 'Tinos',
+    fontSize: 11,
+    textAlign: 'center',
+    marginHorizontal: 'auto',
+    paddingHorizontal: 45,
+    lineHeight: 1.3,
+    marginTop: 3,
+  },
 });
 
 const ToPDF: React.FC<ToPDFProps> = ({ personalInfo }) => {
@@ -54,6 +74,11 @@ const ToPDF: React.FC<ToPDFProps> = ({ personalInfo }) => {
           <Text>Telp: {personalInfo?.phoneNumber ?? ''} |</Text>
           <Text>Email: {personalInfo?.email ?? ''} |</Text>
           <Text>LinkedIn : {personalInfo?.linkedIn ?? ''}</Text>
+        </View>
+
+        <View>
+          <Text style={styles.headerSummary}>SUMMARY</Text>
+          <Text style={styles.Summary}>{personalInfo?.summary ?? ''}</Text>
         </View>
       </Page>
     </Document>

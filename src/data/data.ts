@@ -5,6 +5,8 @@ const Database = {
     phoneNumber: '0857 2772 1799',
     address: 'Surakarta, Jawa Tengah',
     linkedIn: 'linkedin.com/in/xxxx',
+    summary:
+      'I`m a student currently in my first semester at Sebelas Maret University (UNS), pursuing a degree in Informatics. My  passion lies at the intersection of technology and economic business. I am particularly enthusiastic about website  development, with a keen interest in the front-end aspect. Eager to explore and learn more about the dynamic world of technology, I am excited about the possibilities that lie ahead in my academic journey.',
   },
 
   sections: {

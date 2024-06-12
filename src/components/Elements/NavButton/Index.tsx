@@ -17,7 +17,7 @@ const NavButton: React.FC<NavButtonProps> = ({
   personalInfo,
 }) => {
   return (
-    <div className="fixed w-[38.2vw] py-3 border-b-2 top-0 border-black/60 ml-5 bg-white px-1">
+    <div className="fixed w-[36.5vw] py-3 border-b-2 top-0 border-black/60 ml-3 px-2 bg-white/80">
       <div>
         <PDFDownloadLink
           document={<ToPDF personalInfo={personalInfo} />}
